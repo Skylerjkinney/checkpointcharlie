@@ -9,6 +9,7 @@ class ObservableAppState extends EventEmitter {
 
   notes = [
     new NoteModel({
+      title: 'my first entry'
       body: 'fjjsad fkjjsdkafj kl;dsfkldsjhf fkjlkjl dsjjljfasj lkj sadfdsafsaf',
       date: '12/12/12',
     })
