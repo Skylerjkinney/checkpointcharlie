@@ -40,6 +40,38 @@
 
   <!-- SECTION -->
   <main>
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+      aria-controls="offcanvasTop">Create Journal Entry</button>
+
+
+    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasTopLabel">Create your note!</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body container-fluid">
+        <section id="note-list">
+
+        </section>
+        <form class="row" onsubmit="">
+          <div class="col-6 d-flex justify-content-around">
+            <span>Pick a Color! </span> <span>Date</span>
+          </div>
+          <div class="col-3 input-group">
+            <select name="color" id="pick-your-color" class="form-control">
+              <option value="#ff0000">Red</option>
+              <option value="#008000">Green</option>
+              <option value="#ffa500">Orange</option>
+              <option value="#0000ff">Blue</option>
+              <option value="#800080">Purple</option>
+            </select>
+            <input type="date" name="noteDate" id="note-reported-date" class="form-control">
+          </div>
+          <button class="btn btn-success">Submit Changes</button>
+        </form>
+        ...
+      </div>
+    </div>
 
     <section id="router-view">
       <!-- primary viewport -->
