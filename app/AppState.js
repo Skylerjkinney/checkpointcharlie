@@ -9,11 +9,17 @@ class ObservableAppState extends EventEmitter {
 
   notes = [
     new NoteModel({
-      title: 'my first entry'
-      body: 'fjjsad fkjjsdkafj kl;dsfkldsjhf fkjlkjl dsjjljfasj lkj sadfdsafsaf',
-      date: '12/12/12',
+      title: 'my first entry',
+      body: 'Hey im the note from the model',
+      date: '12/12/12'
+    }),
+    new NoteModel({
+      title: 'my second entry',
+      body: ' i like ice cream',
+      date: '12/13/12'
     })
   ]
+  currentNote = null
 }
 
 export const AppState = createObservableProxy(new ObservableAppState())

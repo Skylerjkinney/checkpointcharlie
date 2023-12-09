@@ -20,6 +20,7 @@ export const router = new Router([
   {
 
     path: '#/about',
+    controllers: [NotesController],
     view: 'app/views/AboutView.html'
   }
 ])

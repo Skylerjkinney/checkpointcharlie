@@ -12,6 +12,13 @@ class NotesService {
         const note = AppState.notes.find(note => note.id == noteId)
         console.log('🗒️', note)
     }
+    previewNote() {
+        const activeNote = AppState.currentNote
+        activeNote.locked = true
+        console.log(AppState);
+        AppState.emit('currentNote')
+
+    }
 }
 
 

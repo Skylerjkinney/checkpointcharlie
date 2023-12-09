@@ -14,16 +14,9 @@ export class NoteModel {
     }
 
     get notesListItem() {
-        return `
-        <div class="text-light d-flex justify-content-between">
-  <span>
-    ${this.title} - <span class="text-uppercase"></span>
-  </span>
-  <span>${this.ShortDate}</span>
-  <span>
-    <button onclick="app.CaseFilesController.openCaseFile('${this.id}')" class="btn btn-outline-light" title="open case"><i class="mdi mdi-folder-open"></i></button>
-  </span>
-</div>
+        return `<div>
+        <span> <button class ="btn btn-primary" onclick = ""> ${this.title} </button> </span>
+        </div>
         `
     }
 
@@ -31,6 +24,7 @@ export class NoteModel {
 
     get previewNoteBody() {
         return `
+        <button class= "btn btn-success">Edit</button>
     <p rows = "30" class = "w-75">
     ${this.body}
     </p>
