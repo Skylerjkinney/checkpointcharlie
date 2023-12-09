@@ -12,11 +12,18 @@ function _drawNotesList() {
     document.getElementById('note-list').innerHTML = content
 }
 
+function _drawActiveNote() {
+    const activeNote = AppState.currentNote
+    let content = activeNote.activeNote
+    document.getElementById('this-note').innerHTML = content
+}
+
 export class NotesController {
     constructor() {
         console.log('📒', 'Notes Controller loaded in')
         _drawNotesList()
         AppState.on('notes')
+        AppState.on('currentNote', _drawActiveNote)
     }
     createNote() {
         event.preventDefault()
@@ -29,8 +36,9 @@ export class NotesController {
         console.log('🗒️', noteId)
         notesService.openNote(noteId)
     }
-    previewNote() {
-        console.log('👀');
-        const activeNote = AppState.currentNote
-    }
+    // previewNote() {
+    //     console.log('👀');
+    //     const activeNote = AppState.currentNote
+
+    // }
 }

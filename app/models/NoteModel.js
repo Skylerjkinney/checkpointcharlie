@@ -15,22 +15,22 @@ export class NoteModel {
 
     get notesListItem() {
         return `<div>
-        <span> <button class ="btn btn-primary" onclick = ""> ${this.title} </button> </span>
+        <span> <button class ="btn btn-primary" onclick = "app.NotesController.openNote('${this.id}')"> ${this.title} </button> </span>
         </div>
         `
     }
 
 
 
-    get previewNoteBody() {
+    get activeNote() {
         return `
-        <button class= "btn btn-success">Edit</button>
-    <p rows = "30" class = "w-75">
-    ${this.body}
-    </p>
-    `
+            <button class ="btn btn-success"> Edit </button>
+        <p rows = "30" class = "w-75">
+        ${this.body}
+        </p> `
+
     }
-    get EditableNoteBody() {
+    get editableNote() {
         return `
     <section class="row d-flex justify-content-center">
         <textarea title="your notes" name="note" id="note-area" class="w-75" rows="30">${this.body}

@@ -19,6 +19,7 @@ class ObservableAppState extends EventEmitter {
       date: '12/13/12'
     })
   ]
+  /** @type {NoteModel} */
   currentNote = null
 }
 
