@@ -11,12 +11,15 @@ class ObservableAppState extends EventEmitter {
     new NoteModel({
       title: 'my first entry',
       body: 'Hey im the note from the model',
-      date: '12/12/12'
+      date: '12/12/12',
+      color: 'red'
+
     }),
     new NoteModel({
       title: 'my second entry',
       body: ' i like ice cream',
-      date: '12/13/12'
+      date: '12/13/12',
+      color: 'blue'
     })
   ]
   /** @type {NoteModel} */
