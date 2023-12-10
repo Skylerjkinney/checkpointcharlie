@@ -11,17 +11,29 @@ class NotesService {
     }
     openNote(noteId) {
         const note = AppState.notes.find(note => note.id == noteId)
-        this.previewNote
-        console.log('🗒️', note)
-    }
-    previewNote() {
-        const activeNote = AppState.currentNote
-        this.activeNote
-        activeNote.locked = true
-        console.log(AppState);
+        AppState.currentNote = note
+        console.log('current note', note)
+        note.locked = true
 
+    }
+    editNote() {
+        debugger
+        const activeNote = AppState.currentNote
+        console.log(activeNote)
+        activeNote.locked = false
+        console.log('the active note is unlocked')
+        AppState.emit('currentNote')
+    }
+    commitNote(newBody) {
+        const currentNote = AppState.currentNote
+        currentNote.locked = true
+        currentNote.body = newBody
+        AppState.emit('currentNote')
+        this.saveNote()
+    }
+    saveNote() {
+        saveState('currentNote', AppState.currentNote)
     }
 }
-
 
 export const notesService = new NotesService()

@@ -14,7 +14,9 @@ function _drawNotesList() {
 
 function _drawActiveNote() {
     const activeNote = AppState.currentNote
-    let content = activeNote.activeNote
+    console.log(activeNote)
+    let content = activeNote.previewNote
+    console.log(content)
     document.getElementById('this-note').innerHTML = content
 }
 
@@ -22,8 +24,8 @@ export class NotesController {
     constructor() {
         console.log('📒', 'Notes Controller loaded in')
         _drawNotesList()
-        AppState.on('notes')
         AppState.on('currentNote', _drawActiveNote)
+
     }
     createNote() {
         event.preventDefault()
@@ -35,10 +37,19 @@ export class NotesController {
     openNote(noteId) {
         console.log('🗒️', noteId)
         notesService.openNote(noteId)
+        _drawActiveNote()
     }
-    // previewNote() {
-    //     console.log('👀');
-    //     const activeNote = AppState.currentNote
-
-    // }
+    editNote() {
+        console.log('editing the note in controller')
+        notesService.editNote()
+    }
+    commitNote() {
+        console.log('commiting in controller')
+        const newBody = document.getElementById('this-note').value
+        console.log('new body', newBody)
+        notesService.commitNote(newBody)
+    }
+    saveNote() {
+        console.log('saving note')
+    }
 }

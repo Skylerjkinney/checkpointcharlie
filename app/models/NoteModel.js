@@ -14,7 +14,7 @@ export class NoteModel {
     }
 
     get notesListItem() {
-        return `<div>
+        return `<div class="p-5">
         <span> <button class ="btn btn-primary" onclick = "app.NotesController.openNote('${this.id}')"> ${this.title} </button> </span>
         </div>
         `
@@ -22,19 +22,29 @@ export class NoteModel {
 
 
 
-    get activeNote() {
-        return `
-            <button class ="btn btn-success"> Edit </button>
-        <p rows = "30" class = "w-75">
+    get previewNote() {
+        return ` 
+        <div class = "col-8"> 
+        <h3> ${this.title} </h3>
+        <p>
+        ${this.locked ? this.EditButton : this.editableNote}
         ${this.body}
-        </p> `
+        </p> 
+        </div>`
 
     }
     get editableNote() {
         return `
+        <button class="btn btn-success" onclick="app.NotesController.commitNote()"> Save </button>
     <section class="row d-flex justify-content-center">
         <textarea title="your notes" name="note" id="note-area" class="w-75" rows="30">${this.body}
         </textarea>
     </section> `
+    }
+    get EditButton() {
+        return `<button class="btn btn-info" onclick="app.NotesController.editNote()"> Edit </button>`
+    }
+    get SaveButton() {
+        return `<button class="btn btn-success" onclick="app.NotesController.saveNote()"> Save </button>`
     }
 }
