@@ -45,7 +45,7 @@ export class NotesController {
     }
     commitNote() {
         console.log('commiting in controller')
-        const newBody = document.getElementById('this-note').value
+        const newBody = document.getElementById('note-area').value
         console.log('new body', newBody)
         notesService.commitNote(newBody)
     }

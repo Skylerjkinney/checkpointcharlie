@@ -17,7 +17,6 @@ class NotesService {
 
     }
     editNote() {
-        debugger
         const activeNote = AppState.currentNote
         console.log(activeNote)
         activeNote.locked = false
@@ -25,6 +24,7 @@ class NotesService {
         AppState.emit('currentNote')
     }
     commitNote(newBody) {
+        // debugger
         const currentNote = AppState.currentNote
         currentNote.locked = true
         currentNote.body = newBody
