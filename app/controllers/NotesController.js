@@ -27,9 +27,22 @@ export class NotesController {
         console.log('📒', 'Notes Controller loaded in')
         notesService.loadNote()
         _drawNotesList()
+        this.countNotes()
         AppState.on('currentNote', _drawActiveNote)
         AppState.on('notes', _drawNotesList)
 
+    }
+    countNotes() {
+        let noteCount = 0
+        let notes = AppState.notes;
+        for (let i = 0; i < notes.length; i++) {
+            if (notes[i] instanceof NoteModel) {
+                noteCount++;
+                console.log(noteCount)
+            }
+        }
+        document.getElementById("note-count").innerText = noteCount
+        _drawNotesList()
     }
     createNote() {
         event.preventDefault()

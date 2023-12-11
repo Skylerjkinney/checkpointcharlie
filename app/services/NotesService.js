@@ -35,6 +35,7 @@ class NotesService {
     }
     saveNote() {
         saveState('notes', AppState.notes)
+        app.NotesController.countNotes()
     }
     loadNote() {
         let loadedNote = loadState('notes', [NoteModel])
