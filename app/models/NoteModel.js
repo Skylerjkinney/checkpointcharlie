@@ -15,6 +15,8 @@ export class NoteModel {
 
     get notesListItem() {
         return `<div class="p-5">
+        <h3>${this.currentDate}</h3>
+        <h4>Last Edited: ${this.timeStamp}</h4>
         <span> <button style="color: ${this.color};" class ="btn btn-dark border border-light" onclick = "app.NotesController.openNote('${this.id}')"> ${this.title} </button> </span>
         </div>
         `
@@ -33,6 +35,7 @@ export class NoteModel {
     }
     get editableNote() {
         return `
+        <span> ${this.currentDate} </span>
         <div class="row p-5 mb-5">
         <button class="btn btn-success" onclick="app.NotesController.commitNote()"> Save </button>
         <button class="btn btn-danger" onclick="app.NotesController.deleteNote()"> delete </button>
@@ -48,5 +51,21 @@ export class NoteModel {
     }
     get SaveButton() {
         return `<button class="btn btn-success" onclick="app.NotesController.saveNote()"> Save </button>`
+    }
+    // get longDate() {
+    //     return this.currentDate.toLocaleDateString('en-US', { month: 'long', weekday: 'long', day: 'numeric', year: 'numeric' })
+
+    // }
+    // get shortDate() {
+    //     return this.currentDate.toLocaleDateString()
+    // }
+    get timeStamp() {
+        let timestamp = new Date().getTime()
+        let toDate = new Date(timestamp).getDate()
+        let toMonth = new Date(timestamp).getMonth() + 1
+        let toYear = new Date(timestamp).getFullYear()
+        let original_date = toMonth + "/" + toDate + "/" + toYear
+        this.currentDate = original_date
+        return original_date
     }
 }

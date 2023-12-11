@@ -29,6 +29,7 @@ class NotesService {
         const currentNote = AppState.currentNote
         currentNote.locked = true
         currentNote.body = newBody
+        currentNote.currentDate = currentNote.timeStamp
         AppState.emit('currentNote')
         this.saveNote()
     }

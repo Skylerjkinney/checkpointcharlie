@@ -35,8 +35,9 @@ export class NotesController {
         event.preventDefault()
         const form = event.target
         const noteData = getFormData(form)
-        notesService.createNote(noteData)
+        noteData.currentDate = noteData.currentDate.replaceAll('-', '/')
         console.log('➕📰', noteData)
+        notesService.createNote(noteData)
         form.reset()
     }
     openNote(noteId) {
