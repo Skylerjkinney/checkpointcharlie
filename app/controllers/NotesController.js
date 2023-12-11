@@ -2,6 +2,7 @@ import { AppState } from "../AppState.js";
 import { NoteModel } from "../models/NoteModel.js";
 import { notesService } from "../services/NotesService.js";
 import { getFormData } from "../utils/FormHandler.js";
+import { Pop } from "../utils/Pop.js";
 
 
 
@@ -24,6 +25,7 @@ function _drawActiveNote() {
 export class NotesController {
     constructor() {
         console.log('📒', 'Notes Controller loaded in')
+        notesService.loadNote()
         _drawNotesList()
         AppState.on('currentNote', _drawActiveNote)
         AppState.on('notes', _drawNotesList)
@@ -35,6 +37,7 @@ export class NotesController {
         const noteData = getFormData(form)
         notesService.createNote(noteData)
         console.log('➕📰', noteData)
+        form.reset()
     }
     openNote(noteId) {
         console.log('🗒️', noteId)
@@ -51,7 +54,13 @@ export class NotesController {
         console.log('new body', newBody)
         notesService.commitNote(newBody)
     }
-    saveNote() {
-        console.log('saving note')
+    async deleteNote(noteId) {
+        let isConfirmed = await Pop.confirm("Lose Sweet Juicy Knowledge??", 'Your Mind Hungers...', 'YEET', 'YOLO')
+        if (isConfirmed) {
+            console.log('YEETING', noteId);
+            notesService.deleteNote(noteId)
+        }
+
     }
+
 }

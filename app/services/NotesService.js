@@ -33,7 +33,18 @@ class NotesService {
         this.saveNote()
     }
     saveNote() {
-        saveState('currentNote', AppState.currentNote)
+        saveState('notes', AppState.notes)
+    }
+    loadNote() {
+        let loadedNote = loadState('notes', [NoteModel])
+        AppState.notes = loadedNote
+    }
+    deleteNote(noteId) {
+        const indexToYeet = AppState.notes.findIndex(note => noteId == noteId)
+        if (indexToYeet > -1) {
+            AppState.notes.splice(indexToYeet, 1)
+            this.saveNote()
+        }
     }
 }
 
