@@ -7,25 +7,27 @@
     <h5 id="offcanvasTopLabel">Create your note!</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-  <div class="offcanvas-body container-fluid">
-    <form class="row" onsubmit="app.notes">
-      <div class="col-6 d-flex justify-content-around">
-        <span>Pick a Color! </span> <span>Date</span>
-      </div>
-      <div class=" input-group">
-        <select name="color" id="pick-your-color" class="form-control">
-          <option value="#ff0000">Red</option>
-          <option value="#008000">Green</option>
-          <option value="#ffa500">Orange</option>
-          <option value="#0000ff">Blue</option>
-          <option value="#800080">Purple</option>
-        </select>
-        <input type="date" name="noteDate" id="note-reported-date" class="form-control">
-      </div>
-      <button class="btn btn-success">Submit Changes</button>
-    </form>
+  <div class="offcanvas-body container-fluid mb-3">
   </div>
+  <form class="row" onsubmit="app.NotesController.createNote()">
+    <button type="submit" class="btn btn-success"><i class="mdi mdi-plus-thick"></i>Submit Changes</button>
+    <div class="mb-3 col-4">
+      <label for="note-title">Title</label>
+      <input class="form-control" required name="title" type="text" minlength="3" maxlength="15"
+        placeholder="My first Entry...">
+      <input type="date" name="noteDate" id="note-reported-date" class="form-control">
+    </div>
+    <div class=" input-group">
+      <select name="color" id="pick-your-color" class="form-control">
+        <option value="#ff0000">Red</option>
+        <option value="#008000">Green</option>
+        <option value="#ffa500">Orange</option>
+        <option value="#0000ff">Blue</option>
+        <option value="#800080">Purple</option>
+      </select>
+    </div>
 </div>
+</form>
 
 <section class="container-fluid">
   <div class="col-6" id="note-list">

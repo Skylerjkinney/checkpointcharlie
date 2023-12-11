@@ -1,6 +1,7 @@
 import { AppState } from "../AppState.js";
 import { NoteModel } from "../models/NoteModel.js";
 import { notesService } from "../services/NotesService.js";
+import { getFormData } from "../utils/FormHandler.js";
 
 
 
@@ -25,6 +26,7 @@ export class NotesController {
         console.log('📒', 'Notes Controller loaded in')
         _drawNotesList()
         AppState.on('currentNote', _drawActiveNote)
+        AppState.on('notes', _drawNotesList)
 
     }
     createNote() {

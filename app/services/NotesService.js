@@ -6,8 +6,9 @@ import { loadState, saveState } from "../utils/Store.js";
 class NotesService {
     createNote(formData) {
         const newNote = new NoteModel(formData);
-        console.log('👶📰', newNote);
+        console.log('made new note', newNote);
         AppState.notes.push(newNote)
+        this.saveNote()
     }
     openNote(noteId) {
         const note = AppState.notes.find(note => note.id == noteId)

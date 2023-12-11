@@ -15,7 +15,7 @@ export class NoteModel {
 
     get notesListItem() {
         return `<div class="p-5">
-        <span> <button style="color: ${this.color};" class ="btn btn-warning" onclick = "app.NotesController.openNote('${this.id}')"> ${this.title} </button> </span>
+        <span> <button style="color: ${this.color};" class ="btn btn-dark border border-light" onclick = "app.NotesController.openNote('${this.id}')"> ${this.title} </button> </span>
         </div>
         `
     }
