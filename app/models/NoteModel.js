@@ -54,7 +54,6 @@ export class NoteModel {
     }
     get longDate() {
         return this.currentDate.toLocaleDateString('en-US', { month: 'long', weekday: 'long', day: 'numeric', year: 'numeric' })
-
     }
     get shortDate() {
         return this.currentDate.toLocaleDateString()
