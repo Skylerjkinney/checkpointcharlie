@@ -30,6 +30,7 @@ class NotesService {
         currentNote.locked = true
         currentNote.body = newBody
         currentNote.currentDate = currentNote.timeStamp
+        // currentNote.updatedAt = new Date()
         AppState.emit('currentNote')
         this.saveNote()
     }
@@ -42,6 +43,7 @@ class NotesService {
         AppState.notes = loadedNote
     }
     deleteNote(noteId) {
+        console.log('note id', noteId);
         const indexToYeet = AppState.notes.findIndex(note => noteId == noteId)
         if (indexToYeet > -1) {
             AppState.notes.splice(indexToYeet, 1)

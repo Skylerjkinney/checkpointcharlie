@@ -34,10 +34,10 @@ export class NotesController {
     }
     countNotes() {
         let noteCount = 0
-        let notes = AppState.notes;
+        let notes = AppState.notes
         for (let i = 0; i < notes.length; i++) {
             if (notes[i] instanceof NoteModel) {
-                noteCount++;
+                noteCount++
                 console.log(noteCount)
             }
         }

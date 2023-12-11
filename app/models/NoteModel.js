@@ -8,6 +8,7 @@ export class NoteModel {
         this.title = data.title
         this.color = data.color
         this.currentDate = new Date(data.currentDate)
+        this.updatedAt = new Date()
         this.body = data.body || ''
         this.locked = true
         console.log('new 🗒️', this)
@@ -16,7 +17,7 @@ export class NoteModel {
     get notesListItem() {
         return `<div class="p-5">
         <h3>${this.longDate}</h3>
-        <h4>Last Edited: ${this.timeStamp}</h4>
+        <h4>Last Edited: ${this.updatedAt.toLocaleString()}</h4>
         <span> <button style="color: ${this.color};" class ="btn btn-dark border border-light" onclick = "app.NotesController.openNote('${this.id}')"> ${this.title} </button> </span>
         </div>
         `
@@ -28,7 +29,7 @@ export class NoteModel {
         return ` 
         <div class = "col-12 container-fluid"> 
         <h3> ${this.title} </h3>
-        <p> ${this.body} </p>
+        <p style="color: ${this.color};" > ${this.body} </p>
         <span>  ${this.locked ? this.EditButton : this.editableNote}</span>
         </div>`
 
